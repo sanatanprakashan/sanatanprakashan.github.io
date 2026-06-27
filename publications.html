@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications — Sanatan Prakashan Mandir</title>
+  <meta name="description" content="Religious and literary publications of Sanatan Prakashan Mandir, available as readable PDFs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/seal.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="masthead">
+      <div class="folio">
+        <span>Estd. 15 April 1983</span>
+        <span class="folio-mid">Hathras &middot; Uttar Pradesh</span>
+        <span>Publishers &amp; Printers</span>
+      </div>
+      <a class="nameplate" href="index.html">Sanatan Prakashan Mandir</a>
+      <div class="nameplate-sub">The Publishing House of Sri Ballabh Press &mdash; Established 1983</div>
+    </div>
+    <nav class="sectionbar">
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="publications.html" class="active">Publications</a></li>
+        <li><a href="archive.html">Digital Archive</a></li>
+        <li><a href="foundation.html">Chetanya Foundation</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="section-title">Publications</h2>
+    <hr class="section-rule" />
+    <p class="lead" style="text-align:center; max-width:680px; margin:0 auto 40px;">
+      A selection of religious and literary works published by Sanatan Prakashan Mandir.
+      Each title can be read online or downloaded as a PDF.
+    </p>
+
+    <!-- Publications grid.
+         To add a publication: drop the PDF into assets/pdfs/ and copy one card block,
+         updating the title, meta, description and the href of both links. -->
+    <div class="grid">
+
+      <div class="card">
+        <div class="thumb"><img src="assets/img/shri-krishna-chalisa.jpg" alt="Shri Krishna Chalisa cover" /></div>
+        <div class="body">
+          <h3>Shri Krishna Chalisa</h3>
+          <div class="meta">Devotional &middot; Hindi</div>
+          <p>A devotional booklet of verses in praise of Shri Krishna.</p>
+          <a class="btn" href="assets/pdfs/shri-krishna-chalisa.pdf" target="_blank" rel="noopener">Read PDF</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="thumb">&#128220;</div>
+        <div class="body">
+          <h3>Ganesh Chalisa</h3>
+          <div class="meta">Devotional &middot; Hindi</div>
+          <p>Forty verses dedicated to Lord Ganesh, the remover of obstacles.</p>
+          <a class="btn" href="assets/pdfs/ganesh-chalisa.pdf" target="_blank" rel="noopener">Read PDF</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="thumb">&#128240;</div>
+        <div class="body">
+          <h3>Dainik Krantinaad</h3>
+          <div class="meta">Newspaper &middot; Hindi</div>
+          <p>The newspaper published by Sanatan Prakashan Mandir, printed at Sri Ballabh Press.</p>
+          <a class="btn" href="assets/pdfs/dainik-krantinaad.pdf" target="_blank" rel="noopener">Read PDF</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="thumb">&#128220;</div>
+        <div class="body">
+          <h3>Devotional Booklets</h3>
+          <div class="meta">Collection &middot; Hindi</div>
+          <p>Numerous other devotional booklets and publications from the press.</p>
+          <a class="btn" href="assets/pdfs/devotional-booklets.pdf" target="_blank" rel="noopener">Read PDF</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <h4>Sanatan Prakashan Mandir</h4>
+        <p>Publishing division of Sri Ballabh Press.<br />
+        Mathura Road, Hathras, Uttar Pradesh, India.<br />
+        Established 15 April 1983.</p>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="archive.html">Digital Archive</a></li>
+          <li><a href="foundation.html">Chetanya Foundation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legacy</h4>
+        <p>Founded by Shri Krishna Ballabh Deen.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="year"></span> Sanatan Prakashan Mandir. All rights reserved.
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="js/main.js"></script>
+</body>
+</html>
