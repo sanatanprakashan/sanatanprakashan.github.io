@@ -454,7 +454,7 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 44px 32px 56px; }
   margin: 0 auto;
   padding: 36px 32px;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 30px;
 }
 .footer-inner h4 {
