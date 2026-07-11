@@ -333,6 +333,120 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 44px 32px 56px; }
 .btn:hover { background: transparent; color: var(--ink); text-decoration: none; }
 
 /* ===========================================================
+   BOOKS — cover grid
+   =========================================================== */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 40px 34px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.book-tile { display: block; text-align: center; color: var(--ink); }
+.book-tile:hover { text-decoration: none; }
+.book-tile .cover {
+  border: 1px solid var(--rule);
+  background: #ddcfac;
+  box-shadow: 4px 5px 0 rgba(33,28,20,.18);
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.book-tile .cover img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; }
+.book-tile:hover .cover {
+  transform: translateY(-4px);
+  box-shadow: 6px 8px 0 rgba(33,28,20,.22);
+}
+.book-tile .b-title {
+  font-family: var(--head);
+  font-weight: 700;
+  font-size: 1.12rem;
+  margin: 16px 0 2px;
+  line-height: 1.25;
+}
+.book-tile .b-vol {
+  font-variant: small-caps;
+  letter-spacing: 2px;
+  font-size: .8rem;
+  color: var(--accent);
+}
+
+/* ===========================================================
+   BOOK DETAIL PAGE
+   =========================================================== */
+.book-detail {
+  display: grid;
+  grid-template-columns: minmax(230px, 320px) 1fr;
+  gap: 48px;
+  align-items: start;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.book-detail .cover-col img {
+  width: 100%;
+  border: 1px solid var(--rule);
+  background: #ddcfac;
+  box-shadow: 5px 6px 0 rgba(33,28,20,.2);
+}
+.book-detail .info-col h1 {
+  font-family: var(--head);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.15;
+  margin: 0 0 6px;
+  color: var(--ink);
+}
+.book-detail .b-vol {
+  font-variant: small-caps;
+  letter-spacing: 3px;
+  font-size: .9rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+.book-detail .b-author {
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--soft);
+  border-bottom: 1px solid var(--hair);
+  padding-bottom: 18px;
+  margin: 12px 0 22px;
+}
+.book-detail .b-desc { font-size: 1.05rem; text-align: justify; hyphens: auto; }
+.book-detail .b-desc p { margin: 0 0 1em; }
+
+/* Buy-from dropdown */
+.buy { margin: 26px 0 8px; max-width: 300px; }
+.buy summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-variant: small-caps;
+  letter-spacing: 2px;
+  font-size: .95rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 20px;
+  border: 1px solid var(--ink);
+}
+.buy summary::-webkit-details-marker { display: none; }
+.buy summary::after { content: "\25BE"; margin-left: 12px; }
+.buy[open] summary::after { content: "\25B4"; }
+.buy summary:hover { background: transparent; color: var(--ink); }
+.buy-menu { border: 1px solid var(--rule); border-top: 0; background: var(--paper2); }
+.buy-menu a {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 20px;
+  color: var(--ink);
+  font-size: .98rem;
+}
+.buy-menu a + a { border-top: 1px solid var(--hair); }
+.buy-menu a:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
+.buy-menu .fmt { font-variant: small-caps; letter-spacing: 1px; color: var(--accent); }
+.buy-menu a:hover .fmt { color: var(--paper); }
+
+/* ===========================================================
    ARCHIVE GALLERY
    =========================================================== */
 .archive-group { margin-bottom: 46px; }
