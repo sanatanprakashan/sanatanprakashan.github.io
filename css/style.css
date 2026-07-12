@@ -336,37 +336,41 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 44px 32px 56px; }
    BOOKS — cover grid
    =========================================================== */
 .books-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 40px 34px;
-  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 52px 44px;
+  max-width: 820px;
   margin: 0 auto;
 }
-.book-tile { display: block; text-align: center; color: var(--ink); }
+.book-tile {
+  display: block;
+  width: 168px;
+  text-align: left;
+  color: var(--ink);
+}
 .book-tile:hover { text-decoration: none; }
 .book-tile .cover {
-  border: 1px solid var(--rule);
-  background: #ddcfac;
-  box-shadow: 4px 5px 0 rgba(33,28,20,.18);
   overflow: hidden;
+  box-shadow: 2px 4px 10px rgba(33,28,20,.28);
   transition: transform .18s ease, box-shadow .18s ease;
 }
-.book-tile .cover img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; }
+.book-tile .cover img { width: 100%; height: auto; display: block; }
 .book-tile:hover .cover {
   transform: translateY(-4px);
-  box-shadow: 6px 8px 0 rgba(33,28,20,.22);
+  box-shadow: 3px 8px 16px rgba(33,28,20,.34);
 }
 .book-tile .b-title {
   font-family: var(--head);
   font-weight: 700;
-  font-size: 1.12rem;
-  margin: 16px 0 2px;
+  font-size: 1.05rem;
+  margin: 16px 0 3px;
   line-height: 1.25;
 }
 .book-tile .b-vol {
   font-variant: small-caps;
   letter-spacing: 2px;
-  font-size: .8rem;
+  font-size: .78rem;
   color: var(--accent);
 }
 
