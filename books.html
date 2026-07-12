@@ -35,9 +35,7 @@
   <main>
     <h2 class="section-title">Historical Romantic Fiction</h2>
     <hr class="section-rule" />
-    <p class="lead" style="text-align:center; max-width:680px; margin:0 auto 44px;">
-      Select a title to read more and find where to buy.
-    </p>
+    <p class="section-note">Select a title to read more and find where to buy</p>
 
     <!-- Book cover grid.
          To add a book: copy one <a class="book-tile"> block below, update the
@@ -69,6 +67,33 @@
       </a>
 
     </div>
+
+    <!-- ============================================================
+         Newsletter subscribe.
+         Posts the email to a Google Apps Script Web App that appends
+         it to your Google Doc. Set the endpoint URL in the
+         SUBSCRIBE_ENDPOINT constant in the <script> at the bottom of
+         this file. See SUBSCRIBE_SETUP.md for the one-time setup.
+         ============================================================ -->
+    <section class="subscribe" aria-label="Newsletter subscription">
+      <p class="subscribe-lead">
+        Subscribe for the latest offers and news from Sanatan Prakashan Mandir.
+      </p>
+      <form id="subscribe-form" class="subscribe-form" novalidate>
+        <label class="sr-only" for="subscribe-email">Email address</label>
+        <input
+          id="subscribe-email"
+          type="email"
+          name="email"
+          inputmode="email"
+          autocomplete="email"
+          placeholder="your@email.com"
+          required
+        />
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+      <p id="subscribe-status" class="subscribe-status" role="status" aria-live="polite"></p>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -91,5 +116,61 @@
     </div>
   </footer>
   <script src="js/main.js"></script>
+
+  <script>
+    // ===== Newsletter subscribe ===================================
+    // Paste the /exec URL of your deployed Google Apps Script Web App
+    // here (see SUBSCRIBE_SETUP.md). The script appends the submitted
+    // email to your Google Doc. No Web3Forms, no server required.
+    const SUBSCRIBE_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+    (function () {
+      const form = document.getElementById("subscribe-form");
+      if (!form) return;
+      const status = document.getElementById("subscribe-status");
+      const input = document.getElementById("subscribe-email");
+      const button = form.querySelector("button");
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        status.className = "subscribe-status";
+
+        const email = (input.value || "").trim();
+        if (!input.checkValidity() || !email) {
+          status.textContent = "Please enter a valid email address.";
+          status.classList.add("is-error");
+          return;
+        }
+        if (SUBSCRIBE_ENDPOINT.indexOf("http") !== 0) {
+          status.textContent = "Subscription is not configured yet.";
+          status.classList.add("is-error");
+          return;
+        }
+
+        button.disabled = true;
+        status.textContent = "Submitting…";
+
+        try {
+          // Apps Script Web Apps don't return CORS headers, so we send
+          // as a "simple" request with no-cors. The submission still
+          // reaches the script; we just can't read its response.
+          await fetch(SUBSCRIBE_ENDPOINT, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({ email: email }).toString(),
+          });
+          form.reset();
+          status.textContent = "Thank you — you're on the list.";
+          status.classList.add("is-success");
+        } catch (err) {
+          status.textContent = "Something went wrong. Please try again later.";
+          status.classList.add("is-error");
+        } finally {
+          button.disabled = false;
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
