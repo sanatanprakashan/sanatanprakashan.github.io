@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var lbCap = lb.querySelector(".lb-cap");
     var close = lb.querySelector(".lb-close");
 
-    document.querySelectorAll(".gallery img").forEach(function (img) {
+    document.querySelectorAll(".gallery img, .designs-grid img").forEach(function (img) {
       img.addEventListener("click", function () {
         lbImg.src = img.src;
         lbImg.alt = img.alt;

@@ -570,6 +570,87 @@ main { max-width: var(--maxw); margin: 0 auto; padding: 44px 32px 56px; }
 }
 
 /* ===========================================================
+   DESIGNS — soft compact gallery (3 per row)
+   =========================================================== */
+.designs-intro {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 8px;
+}
+.designs-intro .byline {
+  font-variant: small-caps;
+  letter-spacing: 3px;
+  font-size: .82rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+.designs-intro .byline .name {
+  font-family: var(--head);
+  font-style: italic;
+  font-variant: normal;
+  letter-spacing: .5px;
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+.designs-intro p {
+  font-style: italic;
+  color: var(--soft);
+  font-size: 1.02rem;
+  margin: 10px auto 0;
+}
+
+.designs-group { margin-bottom: 40px; }
+.designs-group > h2 {
+  font-family: var(--head);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  text-align: center;
+  letter-spacing: 2px;
+  color: var(--ink);
+  margin: 0 0 20px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 7px 0;
+}
+
+.designs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.designs-grid figure {
+  margin: 0;
+  background: var(--paper2);
+  border: 1px solid var(--hair);
+  padding: 7px;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(33,28,20,.12);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.designs-grid figure:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(33,28,20,.22);
+}
+.designs-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  cursor: zoom-in;
+  border-radius: 2px;
+  background: #ddcfac;
+  display: block;
+}
+@media (max-width: 640px) {
+  .designs-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+@media (max-width: 380px) {
+  .designs-grid { grid-template-columns: 1fr; }
+}
+
+/* ===========================================================
    LIGHTBOX
    =========================================================== */
 .lightbox {
